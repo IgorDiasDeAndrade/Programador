@@ -25,6 +25,17 @@ def estruturawhile():
         n = n -1
         print('...Finalizado!')
 
+def estruturafor():
+    for i in range(11):
+        if i > 5:
+            i + 1
+            print('maior que 5')
+            print(i)
+        else:
+            print('menor que 5')
+            print('Acabou com i', i)
+            print('finalizado')
+
 #Variable, Expressions and Statements
 #Procure priorizar a atribuição de variáveis
 #com nomes intuitivos
@@ -140,20 +151,35 @@ def tryexcept3():
         else:
             print('Não é um numero')
             tryexcept3()
+
+#Python functions
+#No python funções são alguns codigos reutilizáveis que levam argumentos
+#como entrada, fazem alguma computação e retornam reultados
+
+#Build your own functions
+#Argumento é um valor que passamos para a função como entrada (input)
+#quando invocamos a função
+#Ao usarmos argumentos podemos direcionar a função para diferentes tipos
+#de trabalho quando incovamos em diferentes tempos
+#nos colocamos argumentos entre parentesis apos o nome da função
+
+#Um parametro é uma variavel que usamos na definição da função
+#é um "guia" que permite o codigo na função a acessar os argumentos
+#em uma invocação de função em particular
+
 #O comando def gera e nomeia funções que podem ser invocadas à
 #qualquer momento, à partir de "pedaços de código"
 #de nossa preferencia.
 
+def saudacao(linguagem):
+    if linguagem == 'es':
+        print('hola')
+    elif linguagem == 'fr':
+        print('bonjour')
+    else:
+        print('olá')
 
-def estruturafor():
-    for i in range(11):
-        if i > 5:
-            i + 1
-            print('maior que 5')
-        else:
-            print('menor que 5')
-            print('Acabou com i', i)
-            print('finalizado')
+# O return termina a execução da função e "envia de volta" o resultado dela
 
 print('Bem-vindo aos casos de estudo do Igor')
 print('Para atribuição e cálculo de variáveis digite 1:')
@@ -163,6 +189,7 @@ print('Para leitura de dados digite 4:')
 print('Para conversão de tipo digite 5:')
 print('Para estruturas condicionais digite 6:')
 print('Para contenção de erros tryexcept digite 7:')
+print('Para funções, argumentos e parametros digite 8:')
 entrada = input('Digite a opção: ')
 entradaint = int(entrada)
 if entradaint == 1:
@@ -193,5 +220,24 @@ elif entradaint == 7:
         tryexcept2()
     elif entradaint == 3:
         tryexcept3()
-    else:
-        print('Favor digitar opção válida')
+elif entradaint == 8:
+    def escolhalinguagem():
+        print('1 - Espanho')
+        print('2 - Frances')
+        print('3 - Portugues')
+        entrada = input('Qual lingua?')
+
+        entradaint = int(entrada)
+        if entradaint == 1:
+            saudacao('es')
+        elif entradaint == 2:
+            saudacao('fr')
+        elif entradaint == 3:
+            saudacao()
+        else:
+            print('digite um valor valido: ')
+            escolhalinguagem()
+    escolhalinguagem()
+
+else:
+    print('Favor digitar opção válida')
