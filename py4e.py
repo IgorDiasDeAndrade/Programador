@@ -179,7 +179,10 @@ def saudacao(linguagem):
     else:
         print('olá')
 
-# O return termina a execução da função e "envia de volta" o resultado dela
+#O return termina a execução da função e "envia de volta" o resultado dela
+#Quando a função nao retorna valor, chamamos isso de void
+#Funções que retornam valores são "frutiferas"
+#Funções void não são "Frutiferas"
 
 print('Bem-vindo aos casos de estudo do Igor')
 print('Para atribuição e cálculo de variáveis digite 1:')
