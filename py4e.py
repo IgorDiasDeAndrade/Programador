@@ -15,16 +15,25 @@ print('Hello world')
 #Elemtns of python
 #O python lê linha por linha, e se você implementar
 #uma condição de repetição ele irá reler
-#linha por linha até que satisfazer a condição proposta
 
+#Loops and iterations
+#linha por linha até que satisfazer a condição proposta
+#Estruturas em loop (Passos repetidos) tem variaveis de iteração
+#que mudam (incrementa ou decrementa) cada vez que repete.
+
+#A estrutura while é chamada de loop infinito porque
+#o loop continua ativo ENQUANTO não atinge a condição proposta
 def estruturawhile():
     print('Carregando pagamento diário...')
     n = 5
     while n > 0:
         print(n)
         n = n -1
-        print('...Finalizado!')
+    print('...Finalizado!')
 
+#Definite loops
+#Esses loops são chamados de loops finitos porque
+#executam um exato numero de vezes
 def estruturafor():
     for i in range(11):
         if i > 5:
@@ -184,15 +193,52 @@ def saudacao(linguagem):
 #Funções que retornam valores são "frutiferas"
 #Funções void não são "Frutiferas"
 
+
+#loop Idioms
+#Numa tarefa para descobrir o maior numero, o computador não funciona comando
+#O nosso cérebro, ele passar por cada valor, comparar com o maior anterior
+#e assim atribui-lo à uma variavel.
+
+def qualmaiornumero():
+
+    omaior = None
+    print('Antes', omaior)
+    for i in [1, 2, 3, 45, 2, 4, 5, 46]:
+        if omaior is None or i > omaior:
+            omaior = i
+        print(omaior, i)
+    print('Depois', omaior)
+#More Patterns
+#Numa tarefa para calcular a média dos valores alocados em uma cadeia de numeros
+#precisamos de uma variável que conte o numero de valores, uma variavel que some
+#esses valores e o resultado será a soma dividido pelo numero de valores.
+def calculodemedia():
+    conta = 0
+    soma = 0
+    print('Antes', conta, soma)
+    for valor in [10, 10, 10 ,10 , 10, 9]:
+        conta = conta + 1
+        soma = soma + valor
+        print(conta, soma, valor)
+    print ('Depois', conta, soma, soma/conta)
+
+#existem outras formas de comparar, filtrar, saber se o valor está entre
+#os valores de um array
+
+
+
 print('Bem-vindo aos casos de estudo do Igor')
-print('Para atribuição e cálculo de variáveis digite 1:')
-print('Para expressões intermediátias digite 2:')
-print('Para os tipos de variáveis digite 3:')
-print('Para leitura de dados digite 4:')
-print('Para conversão de tipo digite 5:')
-print('Para estruturas condicionais digite 6:')
-print('Para contenção de erros tryexcept digite 7:')
-print('Para funções, argumentos e parametros digite 8:')
+opcoes = ['Para atribuição e cálculo de variáveis digite 1:',
+ 'Para expressões intermediátias digite 2:',
+ 'Para os tipos de variáveis digite 3:',
+  'Para leitura de dados digite 4:',
+   'Para conversão de tipo digite 5:',
+   'Para estruturas condicionais digite 6:',
+   'Para contenção de erros tryexcept digite 7:',
+   'Para funções, argumentos e parametros digite 8:',
+   'Para estutura de repetição para descobrir o maior numero, 9: ']
+for i in opcoes:
+    print(i)
 entrada = input('Digite a opção: ')
 entradaint = int(entrada)
 if entradaint == 1:
@@ -215,14 +261,25 @@ elif entradaint == 6:
     else:
         print('Favor digitar opção válida')
 elif entradaint == 7:
-    entrada = input('Exercicio 1, 2 ou 3?')
-    entradaint = int(entrada)
-    if entradaint == 1:
-        tryexcept()
-    elif entradaint == 2:
-        tryexcept2()
-    elif entradaint == 3:
-        tryexcept3()
+    def exercicio7():
+        entrada = input('Exercicio 1, 2 ou 3?')
+        try:
+            entradaint = int(entrada)
+            if entradaint == 1:
+                tryexcept()
+            elif entradaint == 2:
+                tryexcept2()
+            elif entradaint == 3:
+                tryexcept3()
+            else:
+                print('Digite uma opção válida')
+                exercicio7()
+        except:
+            entradaint = 0
+            if entradaint < 1:
+                print('Digite uma opção válida')
+                exercicio7()
+    exercicio7()
 elif entradaint == 8:
     def escolhalinguagem():
         print('1 - Espanho')
@@ -241,6 +298,8 @@ elif entradaint == 8:
             print('digite um valor valido: ')
             escolhalinguagem()
     escolhalinguagem()
+elif entradaint == 9:
+    qualmaiornumero()
 
 else:
     print('Favor digitar opção válida')
