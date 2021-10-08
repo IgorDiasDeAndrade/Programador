@@ -225,6 +225,112 @@ def calculodemedia():
 #existem outras formas de comparar, filtrar, saber se o valor está entre
 #os valores de um array
 
+#Strings in python
+#Em python conseguimos percorrer uma string utilizando a estrutura for
+
+#Intermediate Strings
+#Nós também conseguimos retornar uma seção contínua da indexação do array
+#de uma string utilizando o operador : (Dois pontos)
+#o segundo parametro é além do fim da janela retornada
+#por exemplo: str[1:3] só retornará as posições 0 1 2 da variavel str
+#a lista retornada vai até o segundo parametro mas não o inclui
+#se passamos parâmetros vazios para a fatia é assumido que será retornado
+#do inicio ou o fim da string, por exemplo str[:3] retornará do incio até a
+#2 lembrando que a posição 3 não será retornada.
+
+#o in tambem pode ser usado como operador lógico de comparação
+#se há n na variavel str atribua verdadeiro na variavel c
+def existealetranapalavra():
+    str = 'banana'
+    if 'n' in str:
+        c = True
+    print(c)
+
+#python tem um numero de funções para tratamento de string que estão
+#na biblioteca string, essas funções já estao criadas em cada String
+#nos as invocamos ao anexar a função à variavel String
+def funcminusculo():
+    str = 'BANANA'
+    str2 = str.lower()
+    print(str2)
+    print(dir(str2))
+#é possivel usar a função dir com um parametro string
+#para saber mais sobre quais funções srting estão na biblioteca do python
+
+#utilizamos a função find() para procurar por uma
+#substring que possa estar em uma String
+#ele retornará a primeira posição da indexação
+#que seja igual a substring passada como parametro
+def funcprocura():
+    fruta = 'banana'
+    existe = fruta.find('na')
+    #"ache o primeiro na e me traga a posição"
+    print(existe)
+    aa = fruta.find('z')
+    print(aa)
+#"ache o primeiro na e me traga a posição"
+#se a substring não for encontrada o find() retorna -1
+
+#Função Search and Replace
+#A função replace() substitui TODAS AS OCORRENCIAS da string de procura
+#pela string de subistituição
+def searchreplace():
+    saudacao = 'Ola Igor'
+    novastr = saudacao.replace('Igor', 'Luigi')
+    print(novastr)
+
+#Reading files
+#A função open() é utilizada para carregar o arquivo
+#o Nome do arquivo deve ser passado como parametro para a função
+#e em seguida o modo em que o arquivo será carregado
+#por exemplo, open('teste.txt', 'r') o modo utilizado é o de leitura
+# 'r' para leitura e 'w' para escrita
+def lerarquivo():
+    x = open('teste', 'r')
+    print(x)
+
+#utilizamos o caractere especial \n chamado newline
+#para indicar quando uma linda acaba
+
+
+#Conseguimos usar um uma condição if em nosso loop for para apenas
+#printar linhas que se encaixam em algum critério
+fhand = open('teste.txt')
+for line in fhand:
+    if line.startswith('from:")
+        print(line)
+
+#Procurando através de um arquivo
+#A função rstrip() é utilizada para limpar os espaços
+#em branco e do qual a "new line" é considerada
+#line = line.rstrip()
+
+#What does the word 'continue' do in the middle of a loop?
+#Skips to the next iteration of the loop.
+
+#Algoritmos: Uma cadeia de regras ou
+#passos usados para resolver um problema
+
+#Estrutura de dados: Uma forma particular
+#de organizar os dados em um computador
+
+#A função range() retorna uma lista de numero
+#que alcança do zero até um a menos do que o parametro
+
+#friends = ['joseph', 'pollnaref', 'kayoin']
+#print(range(len(friends)))
+
+#retornará [0, 1, 2]
+
+#Podemos construir um loop de indice usando o for e um inteiro iterador
+def exemploindice():
+    friend = ['joseph', 'polnaref', 'kakyoin']
+    for friend in friends:
+        print('Wryyyyy:' friend)
+
+    for i in range(len(friends):
+        friend = friends[i]
+        print('Wryyyy:' friend)
 
 
 print('Bem-vindo aos casos de estudo do Igor')
