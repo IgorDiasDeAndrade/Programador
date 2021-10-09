@@ -361,6 +361,31 @@ def funclistas():
 
 #Calcular a media de uma lista "infinita" com valores
 #e tamanho ditadas pelo usuário
+
+#a função split() quando é invocada sem parametro,
+#considera os espaços como como delimitador e separa o texto em pedaços
+#voce pode passar algum parametro para que ela corte o texto e atribua
+#à uma lista se baseando nele (voce pode dizer ao split qual caracetere
+#será usado para dividir o texto e gerar a lista)
+
+abc = 'com tres palavras'
+fragmentolista = abc.split()
+print(fragmentolista)
+for w in fragmentolista:
+    print(w)
+#No cógigo abaixo ele atribuiu o texto à variavel words
+#pieces recebeu words.split() (recebeu o texto fragmentado em lista)
+#parts recebeu a terceira posição de pieces com a função split('-')
+#o parametro ('-') fez a função dividir a terceira porição da lista em
+#uma nova lista onde o texto foi cortado no caractere -
+#n recebeu a primeira posição da lista da lista
+#ao printar n o resultado foi lar@freecodecamp.org
+words = 'His e-mail is q-lar@freecodecamp.org'
+pieces = words.split()
+parts = pieces[3].split('-')
+n = parts[1]
+
+
 def medialista():
     total = 0
     count = 0
