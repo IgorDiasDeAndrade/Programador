@@ -295,43 +295,83 @@ def lerarquivo():
 
 #Conseguimos usar um uma condição if em nosso loop for para apenas
 #printar linhas que se encaixam em algum critério
-fhand = open('teste.txt')
-for line in fhand:
-    if line.startswith('from:")
-        print(line)
+def procuralinha():
+    fhand = open('teste.txt')
+    for line in fhand:
+        if line.startswith('from:'):
+            print(line)
+# Procurando através de um arquivo
+# A função rstrip() é utilizada para limpar os espaços
+# em branco e do qual a "new line" é considerada
+# line = line.rstrip()
 
-#Procurando através de um arquivo
-#A função rstrip() é utilizada para limpar os espaços
-#em branco e do qual a "new line" é considerada
-#line = line.rstrip()
+# What does the word 'continue' do in the middle of a loop?
+# Skips to the next iteration of the loop.
 
-#What does the word 'continue' do in the middle of a loop?
-#Skips to the next iteration of the loop.
+# Algoritmos: Uma cadeia de regras ou
+# passos usados para resolver um problema
+# Estrutura de dados: Uma forma particular
+# de organizar os dados em um computador
 
-#Algoritmos: Uma cadeia de regras ou
-#passos usados para resolver um problema
+# A função range() retorna uma lista de numeros
+# que alcança do zero até um a menos do que o parametro
+# friends = ['joseph', 'pollnaref', 'kayoin']
+# print(range(len(friends)))
+# retornará [0, 1, 2]
 
-#Estrutura de dados: Uma forma particular
-#de organizar os dados em um computador
+# Podemos construir um loop de indice usando o for e um inteiro iterador
 
-#A função range() retorna uma lista de numero
-#que alcança do zero até um a menos do que o parametro
-
-#friends = ['joseph', 'pollnaref', 'kayoin']
-#print(range(len(friends)))
-
-#retornará [0, 1, 2]
-
-#Podemos construir um loop de indice usando o for e um inteiro iterador
-def exemploindice():
+def teste():
     friend = ['joseph', 'polnaref', 'kakyoin']
     for friend in friends:
-        print('Wryyyyy:' friend)
+        print('Wryyyyy:', friend)
 
-    for i in range(len(friends):
+def teste2():
+    for i in range(len(friends)):
         friend = friends[i]
-        print('Wryyyy:' friend)
+        print('Wryyyy:', friend)
 
+
+#Working With Lists
+#Podemos criar uma lista vazia e adicionar elementos usando o metodo append
+#A ordem da lista é ditada pela ordem que adicionamos elementos no final dela
+def declaralista():
+    #declarando uma variável como lista vazia:
+    coisa = list()
+    #adicionando a string book ao final dessa lista:
+    coisa.append('livro')
+    coisa.append('Bolsa')
+    coisa.append('Telefone')
+    coisa.sort()
+    print(coisa)
+    print(coisa[0])
+    if 99 in coisa:
+        print('tem', 99,'em', coisa)
+
+#declaralista()
+
+#Funções para manipulação de listas
+def funclistas():
+    lista1 = [3, 4, 5, 6, 7, 8, 9, 1, 2]
+    print('O tamanho da lista é', len(lista1))
+    print('O maior valor da lista é', max(lista1))
+    print('O menor valor da lista é', min(lista1))
+    print('A soma de todas as posições da lista é', sum(lista1))
+    print('O valor médio da lista é', sum(lista1)/len(lista1))
+
+#Calcular a media de uma lista "infinita" com valores
+#e tamanho ditadas pelo usuário
+def medialista():
+    total = 0
+    count = 0
+    while True:
+        inp = input('enter a number')
+        if inp == 'done': break
+        value = float(inp)
+        total = total + value
+        count = count + 1
+    average = total/count
+    print('Average', average)
 
 print('Bem-vindo aos casos de estudo do Igor')
 opcoes = ['Para atribuição e cálculo de variáveis digite 1:',
