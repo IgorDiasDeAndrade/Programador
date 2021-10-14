@@ -398,6 +398,86 @@ def medialista():
     average = total/count
     print('Average', average)
 
+#Python Dictionaries
+#Listas indexam suas entradas baseando-se na posilção na lista
+#Dictionaries são como bolsas, sem ordem, então nós indexamos
+#coisas nos dicionarios com um par de chave-valor para que
+#consigamos trazer de volta o que inserimos
+
+#alterando a chave do valor no dicionario:
+bolsa = dict()
+bolsa['Dinheiro'] = 12
+bolsa['doce'] = 3
+bolsa['lenços'] = 73
+print(bolsa)
+doce = int(input('insira doces na bolsa:',))
+bolsa['doce'] = bolsa['doce'] + doce
+print(bolsa)
+
+#Dictionaries: Common Applications
+#Você não pode procurar diretamente
+#por valores que não existem no dicionário
+#para isso utilizamos o operador in que
+#retorna true ou false, caso contrário o python
+#retornará um erro
+#Abaixo está uma forma de contornar este erro
+counts = dict()
+names = ['igor', 'peach', 'luigi', 'mario', 'peach']
+for name in names:
+    if name not in counts:
+        counts[name] = 1
+    else:
+        counts[name] = counts[name] + 1
+print(counts)
+#Outra forma mais simplificada de fazer isso
+#é utilizando o metodo get()
+#que retorna o valor do item com a chave especificada
+counts = dict()
+names = ['igor', 'peach', 'luigi', 'mario', 'peach']
+for name in names:
+    counts[name] = counts.get(name, 0) + 1
+print(counts)
+
+#Dictionaries and Loops
+#Na linha abaixo solicitamos uma entrada com o nome do arquivo que
+#será lido e atribuimos o texto desse arquivo à variavel mediador
+nome = input('insira o arquivo: ')
+mediador = open(nome)
+
+#Abaixo declaramos o dicionario com o nome contar
+#e criamos um loop que percorre a variavel que contem o texto
+#criamos a variavel palavras, que recebe o iterador que
+#corta o texto nos espaços em branco com o metodo split()
+#e criamos outro loop que retorna a chave e o valor e os incrementa
+#na variavel contar na posição do iterador
+contar = dict()
+for linha in mediador:
+    palavras = linha.split()
+    for palavra in palavras:
+        contar[palavra] = contar.get(palavra,0) + 1
+
+#abaixo iniciamos duas variaveis null
+#criamos outro loop que percorre a chave valor da variavel contor
+#que atribuimos anteriormente, com o metodo items()
+#e criamos uma estrutura de condição onde
+#se a variavel grandeconta é null ou o iterador conta, que representa o valor
+#atribuido ao dictionarie for maior que o de grande conta
+#a variavel grandepalavra recebe palavra e a grande conta recebe a conta
+#isso permite que os valores das variaveis sejam subistituidos toda vez
+#que o valor seguinte seja maior q o chave-valor anterior
+grandeconta = None
+grandepalavra = None
+for palavra,conta in contar.items():
+    if grandeconta is None or conta > grandeconta:
+        grandepalavra = palavra
+        grandeconta = conta
+
+print(grandepalavra, grandeconta)
+print(contar)
+
+
+
+
 print('Bem-vindo aos casos de estudo do Igor')
 opcoes = ['Para atribuição e cálculo de variáveis digite 1:',
  'Para expressões intermediátias digite 2:',
