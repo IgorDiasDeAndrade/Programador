@@ -476,6 +476,82 @@ print(grandepalavra, grandeconta)
 print(contar)
 
 
+#Comparing and Sorting Tuples
+#Abaixo uma forma simplificada de percorrer os valores de um dictionary
+#e exibi-los em ordem crescente baseando-se no valor e não na chave
+print(sorted([(v,k) for k,v in c.items()], reverse=True))
+
+#A função sorted é utilizada para organizar uma lista ou dicionario,
+#caso usado com o metodo items() como parametro "sorted(exemplo.items())"
+#organizará a visão do objeto baseando-se nas chaves do dicionario, sem levar
+#em conta o valor
+
+#O parametro reverse=True serve para reverter a ordem da lista,
+#no caso da lista de tuplas, caso necessitemos de uma lista em ordem decrescente
+
+#O método items() retorna uma visão d eobjeto que contém as chave-valor
+#do dictionary em formato de tuplas numa lista
+
+#Itens de lista são anexados em colchetes: []
+#Itens de tuplas são anexados em parentesis: ()
+#itens de dicionarios são anexados em chaves: {}
+
+
+#Regular Expressions
+#RegEx É uma biblioteca do python usada para tratamento de Strings
+#Como toda biblioteca, antes de utilizarmos devemos importala para
+#o nosso programa, para isso basta inserir: import re
+
+#Dentro dessa biblioteca temos alguns metodos, os de busca são
+#re.search() que deve ser utilizado apenas para saber se existe
+#string procurada, pois esse método só retorna true/false
+#para retornar a string correspondente utilizaremos o metodo re.findall()
+
+#Esta biblioteca possui alguns subcomandos que auxiliam na procura da String
+#Que são conhecidos como metacaraceteres
+#^ = Combina os caracteres que correspondem a busca
+#e que estão no inicio da linha
+#$ = faz o mesmo, porém com os correspondentes no final da linha
+#() = isola o retorno da busca
+#[] = usados para combinar conjuntos de string, exemplo [a-d] retornará a b c d
+#. = retorna um caracete qualquer correspondente a busca
+#* = retorna zero, um ou mais caraceteres correspondentes
+
+#Os metacaracteres podem ser combinados, exemplo: Pyt.* retornará:
+# zero uma ou mais ocorrencias de qualquer caractere correspondente
+
+#Networking protocol
+#O python possui uma biblioteca nativa para conexções à internet
+#para importa-la utilizamos: import socket
+#Socket nada mais é do que o meio de comunicação entre duas extremidades
+#Tanto que ao utilizar os metodos da biblioteca devemos passar os protocolos
+#de conexão como parametros, por exemplo:
+#AF_INET é um parametro de Ipv4,
+#e o SOCK_STREAM é referente ao protocolo TCP/IP
+def conexao():
+    import socket
+
+#abaixo temos a variavel mysock recebendo as "regras" de comunicação
+    mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#a função connect com o ('host', porta) como parametros
+    mysock.connect(('data.pr4e.org', 80))
+#cmd recebendo a string codificada para UTF-8
+    cmd = 'GET https://www.exemplo.com.br/exemplo.txt'.encode()
+#a variavel mysock apontando para os dados anteriores e
+#o metodo send com os dados codificados como parametro
+    mysock.send(cmd)
+#Conexão feita com sucesso, agora vamos receber e decodificar os dados
+
+#enquanto verdadeiro
+    while True:
+#data recebe os dados por meio do metodo recv
+        data = mysock.recv(512)
+#se o tamanho de data for menor do que 1 pare
+        if len(data) < 1:
+            break
+#escreva os dados atribuidos à data decodificados
+        print(data.decode(),end='')
+    mysock.close()
 
 
 print('Bem-vindo aos casos de estudo do Igor')
