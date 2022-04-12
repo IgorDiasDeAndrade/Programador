@@ -12,7 +12,7 @@ print('Hello world')
 #print('A multiplicação de : ', x ,'e', y ,'é: ', (x*y))
 #print('A divisão de : ', x ,'e', y ,'é: ', (x/y))
 
-#Elemtns of python
+#Elementns of python
 #O python lê linha por linha, e se você implementar
 #uma condição de repetição ele irá reler
 
@@ -552,6 +552,52 @@ def conexao():
 #escreva os dados atribuidos à data decodificados
         print(data.decode(),end='')
     mysock.close()
+
+
+#criando um "browser" simples com o urllib
+import urllib.request, urllib.parse, urllib.error
+
+fhand = urllib.request.urlopen('http://www.susep.gov.br/download/menumercado/teste.txt')
+for line in fhand:
+    print(line.decode())
+
+
+#JSON E XML são as duas mais comuns formas de enviar dados na internet deviado
+#a sua grande compatibilidade, e fácil forma de retornar dados isolados
+
+#Estrutura xml xsd:
+#Exemplo de dados em XML:
+import xml.etree.elementtree as ET
+dadosxml = '''
+<person>
+    <name>Igor</name>
+        <phone type = "intl">
+            +55 21 98079-5115
+        </phone>
+    <email hide="yes">
+</person>
+'''
+#XML é mais apropriado para documentos ricos em hierarquias
+
+#Exemplo de dados em JSON:
+
+import json
+dadosjson = '''
+[
+{"id" : "001",
+"x" : "2",
+"name" : "Igor"
+}
+]
+'''
+
+#Json organiza os dados em listas de dictionary
+#O que possibilita que retornemos os valores da forma convencional
+#do python, por exemplo:
+
+info = Json.loads(Dados)
+print(info[0]["name"])
+
 
 
 print('Bem-vindo aos casos de estudo do Igor')
