@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/kroton/Desktop/Programador/Biblioteca_Musical_DB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1160"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainFaixa"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="71"/><column index="3" value="135"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Artista" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="61"/><column index="2" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Faixa" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="65"/><column index="3" value="73"/><column index="4" value="65"/><column index="5" value="40"/><column index="6" value="149"/><column index="7" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Genero" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="43"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE &quot;Artista&quot;(
+&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, 
+&quot;nome&quot; TEXT)
+
+CREATE TABLE &quot;Album&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+artista_id INTEGER,
+&quot;titulo&quot; TEXT)
+
+CREATE TABLE &quot;Genero&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+&quot;nome&quot; TEXT)
+
+CREATE TABLE &quot;Faixa&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+album_id INTEGER, genero_id INTEGER, tamanho INTEGER, nota INTEGER,
+&quot;titulo&quot; TEXT, &quot;contagem&quot; INTEGER)
+
+
+INSERT INTO Artista (nome) VALUES ('Led Zeppelin')
+INSERT INTO Artista (nome) VALUES ('AC/DC')
+
+INSERT INTO Genero (nome) VALUES ('Rock')
+INSERT INTO Genero (nome) VALUES ('Metal')
+
+INSERT INTO Album (titulo, artista_id) VALUES ('IV', 1)
+INSERT INTO Album (titulo, artista_id) VALUES ('Who Made Who', 2)
+
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Black Dog', 5 , 297, 0, 2, 1)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Stairway', 5 , 482, 0, 2, 1)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('About to Rock', 5 , 313, 0, 1, 2)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Who Made Who', 5 , 207, 0, 1, 2)
+
+SELECT faixa.titulo , Genero.nome from faixa JOIN Genero on faixa.genero_id = genero_id</sql><current_tab id="0"/></tab_sql></sqlb_project>

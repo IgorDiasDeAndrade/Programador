@@ -1,0 +1,31 @@
+CREATE TABLE "Artista"(
+"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, 
+"nome" TEXT)
+
+CREATE TABLE "Album" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+artista_id INTEGER,
+"titulo" TEXT)
+
+CREATE TABLE "Genero" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+"nome" TEXT)
+
+CREATE TABLE "Faixa" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+album_id INTEGER, genero_id INTEGER, tamanho INTEGER, nota INTEGER,
+"titulo" TEXT, "contagem" INTEGER)
+
+
+INSERT INTO Artista (nome) VALUES ('Led Zeppelin')
+INSERT INTO Artista (nome) VALUES ('AC/DC')
+
+INSERT INTO Genero (nome) VALUES ('Rock')
+INSERT INTO Genero (nome) VALUES ('Metal')
+
+INSERT INTO Album (titulo, artista_id) VALUES ('IV', 1)
+INSERT INTO Album (titulo, artista_id) VALUES ('Who Made Who', 2)
+
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Black Dog', 5 , 297, 0, 2, 1)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Stairway', 5 , 482, 0, 2, 1)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('About to Rock', 5 , 313, 0, 1, 2)
+INSERT INTO Faixa (titulo, nota, tamanho, contagem, album_id, genero_id) VALUES ('Who Made Who', 5 , 207, 0, 1, 2)
+
+SELECT faixa.titulo , Genero.nome from faixa JOIN Genero on faixa.genero_id = genero_id
